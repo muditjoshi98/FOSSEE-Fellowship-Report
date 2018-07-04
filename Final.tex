@@ -1,6 +1,7 @@
 \documentclass[12pt,a4paper]{report}
 \usepackage[hmargin=3cm,vmargin=3cm]{geometry}
 \usepackage{graphicx}
+\usepackage{wrapfig}
 \usepackage{caption}
 \usepackage{array}
 \usepackage{listings}
@@ -144,19 +145,214 @@ Ngspice is, anyway, more than the simple sum of the packages above, as many peop
 
 \chapter{\textbf{KiCad Nightly Build (v5)}}
 \section{Building KiCad} 
-\section{Autoplot PDF when saving projects}
-\section{Add hotkey for opening context menu in eeschema}
-\section{Ability to open project folder in host operating system}
-\section{Inconsistent reference field parsing during editor copy}
+\section{Bug : Autoplot PDF when saving projects}
+This Bug : \verb!#! 1636549 is a feature addition in Kicad which is requested by a user of Kicad. It is somtime necesary to have the schematic in a handy format (like pdf) which can be easily accesed by other non-electric background people. So the requirement is to automatically plot the schematic in PDF format whenever the user saves the schematic, as the default plot method is time consuming.
+\vspace{3mm}
+\\
+Bug Link : \url{https://bugs.launchpad.net/kicad/+bug/1636549}
+\\
+\\
+Patch Link : \url{https://launchpadlibrarian.net/375310564/0001-Eeschema-Adding-Autoplot-PDF-when-saving-project.patch}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.4]{ki_bug_1}
+	\caption{Required Mockup}
+\end{figure}
+\\
+The schematic will be plot in PDF format and with scaling the color and the wire width will be taken from the previous setting keeping in mind that they are user defined property i.e. every user might have different requirement of PDF
+\section{Bug : Add hotkey for opening context menu in eeschema}
+This Bug : \verb!#! 1663595 is also a feature addition in eeschema in which the user wanted to have a shortcut to open the context menu for fast use of the software. The assigned hotkey for this function is \textbf{'D'}. The context menu open a bit below the cousor position.
+\vspace{3mm}
+\\
+Bug Link : \url{https://bugs.launchpad.net/kicad/+bug/1663595}
+\\
+\\
+Patch Link : \url{https://bugs.launchpad.net/kicad/+bug/1663595/+attachment/5159628/+files/0001-Eeschema-Add-shortcut-for-opening-context-menu.patch}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.3]{ki_bug_2}
+	\caption{Patch Output}
+\end{figure}
+\\
+\textbf{Solution} : Following is the Code Snippet to generate context menu
+\begin{verbatim}
+case HK_RIGHT_CLICK:
+        {
+            wxMenu MasterMenu;
+            wxPoint pos1 = wxGetMousePosition() , pos2 = GetScreenPosition();
+            wxPoint pos = pos1 - pos2;
+
+            if( !OnRightClick( aPosition, &MasterMenu ) )
+                return false;
+
+            AddMenuZoomAndGrid( &MasterMenu );
+
+            m_canvas->SetIgnoreMouseEvents(true);
+            PopupMenu( &MasterMenu, pos );
+            m_canvas->SetIgnoreMouseEvents(false);
+        }
+\end{verbatim}
+\section{Bug : Ability to open project folder in host operating system}
+\section{Bug : Inconsistent reference field parsing during editor copy}
 
 
 \chapter{\textbf{Digital Simulation and Component Parser}}
 This Chapter describes about the simulation in ngspice and about the component libraries of Kicad and eSim , similarities and differences between them. Problem description is to find out the reason behind the faliure of ngspice in simulating the digital circuits and some analog circuits in Kicad and to find out if we can use the components of kicad in eSim to increase the eSim library.
 \section{Digital Simulation in KiCad}
+
+\begin{wrapfigure}{r}{0.5\textwidth} %this figure will be at the right
+	\centering
+	\includegraphics[width=0.5\textwidth]{models}
+	\caption{Models in ngSpice}
+\end{wrapfigure}
+
+Digital simulation is a problem coming in Kicad on simulating the circuits which works perfectly on eSim. Initially it was suggested that there must be some problem in the way Kicad converts the schematic to its respective generic netlist. On studying he kicad code base it is found that there is some changes in the way kicad identifies the connections from v4 (used in eSim) to v5 (new stable version of kicad). But it is not the only problem, because on changing the connection accordingly the same error pops i.e. \texttt{Error:model not found...} On refering to \href{http://ngspice.sourceforge.net/docs/ngspice-manual.pdf}{ngSpice manual}, it is found that there are some specific components which are identified as models in ngSpice which are shown.
+\vspace{5mm}
+\\
+The problem found out is that for models other than those mention above ngSpice is not able to indetify them, and hence error. For such case ngSpice uses its festiure of subcircuit to make internal circuits for these components. Also among the shown components, basic components like R,C,L are automatically identified by ngSpice but for others i.e. Diodes and Transistors you have to specify them using \texttt{.model} function.
+\vspace{5mm}
+\\
+In eSim, the Kicad to ngSpice Converter uses some of the hardcoded values for these models (stored in \texttt{.xml} format) specified in program and add these lines to the generic spice netlist. Also, in eSim for the models not specified in it, will fail to simulate. So the user have to make subcurcuits for these models in order to make them work.
+\vspace{5mm}
+\\
+Even from the discussion in official \href{https://forum.kicad.info/t/digital-simulation/11072}{KiCad Forum}, it is suggested to make the subcircuits for the components, to make them work.
+
 \section{Parser to increase supported components in eSim}
+This section discuss about the suggestion to increase the no of components in eSim from Kicad by making a parser which convert the symbols from Kicad format to eSim format. It is suggested to take help from the \href{https://github.com/FOSSEE/Pspice-Kicad-Converter}{Pspice to Kicad parser} made earlier. On research it is found that the component files of Kicad and eSim are almost same. In fact eSim uses the eeschema software of kicad suit for schematic designing, so the components of kicad can be easily run on eSim, there might be only warning to uses a newer version of eeschema but it does not have any such effect in the running of the prorgam. And even the parser which was made earlier converts files from pspice to kicad which are two completely different softwares (infact competitors), whereas eSim is made on Kicad.
+\\ Hence, it is conclude that there is no need to make a parser. In support to our conclusion , few components are added to eSim from Kicad which earlier dont work in eSim. These components include LM741, LM733H.
+
+\subsection{LM741}
+\begin{wrapfigure}{l}{0.4\textwidth} %this figure will be at the right
+	\centering
+	\includegraphics[width=0.4\textwidth]{lm741}
+	\caption{LM741}
+\end{wrapfigure}
+The LM741 series are general-purpose operational amplifiers which feature improved performance over industry standards like the LM709. They are direct, plug-in replacements for the 709C, LM201, MC1439, and 748 in most applications.
+\\
+The amplifiers offer many features which make their application nearly foolproof: overload protection on the input and output, no latch-up when the common-mode range is exceeded, as well as freedom from oscillations.
+\vspace{5mm}
+\\
+\begin{flushleft}
+\textbf{Subcircuit file of LM741}
+\end{flushleft}
+
+\begin{verbatim}
+* OPAMP MACRO MODEL (INTREMEDIATE LEVEL)
+*                  IN- IN+ VEE    OUT  VCC
+.SUBCKT lm741   18 2   1   102 19 81   101 20
+Q1	5 1	7	NPN
+Q2	6 2	8	NPN
+RC1	101	5	95.49
+RC2	101	6	95.49
+RE1	7	4	43.79
+RE2	8	4	43.79
+I1	4	102	0.001
+* OPEN-LOOP GAIN, FIRST POLE AND SLEW RATE
+G1	100 10	6 5 0.0104719
+RP1	10	100	9.549MEG
+CP1	10	100	0.0016667UF
+*OUTPUT STAGE
+EOUT	80 100	10 100	1
+RO	80	81	100
+* INTERNAL REFERENCE
+RREF1	101	103	100K
+RREF2	103	102	100K
+EREF	100 0	103 0 1
+R100	100	0	1MEG
+.model NPN  NPN(BF=50000)
+.ENDS lm741
+\end{verbatim}
+\vspace{5mm}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.4]{lm741_sch}
+	\caption{LM741 - Schematic}
+\end{figure}
+
+\vspace{5mm}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{lm741_sim}
+	\caption{LM741 - Simulation Output}
+\end{figure}
+
+\subsection{LM733H}
+\begin{wrapfigure}{l}{0.4\textwidth} %this figure will be at the right
+	\centering
+	\includegraphics[width=0.4\textwidth]{lm733h_sub}
+	\caption{LM733H - Internal Subcircuit}
+\end{wrapfigure}
+The LM733/LM733C is a two-stage, differential input, differential output, wide-band video amplifier. The use of internal series-shunt feedback gives wide bandwidth with low phase distortion and high gain stability. Emitter-follower outputs provide a high current drive, low impedance capability. Its 120 MHz bandwidth and selectable gains of 10, 100 and 400, without need for frequency compensation, make it a very useful circuit for memory element drivers, pulse amplifiers, and wide band linear gain stages.
+\vspace{5mm}
+\\
+\begin{flushleft}
+	\textbf{Subcircuit file of LM733H}
+\end{flushleft}
+
+\begin{verbatim}
+* Subcircuit LM733H
+.subckt LM733H net-_q1-pad2_ net-_q1-pad3_ net-_r2-pad2_ net-_q3-pad3_ 
+net-_r6-pad2_ net-_q3-pad2_ net-_r11-pad2_ net-_q10-pad1_ net-_q8-pad1_ 
+net-_q10-pad3_ 
+
+r2  net-_q1-pad3_ net-_r2-pad2_ 50
+r6  net-_q3-pad3_ net-_r6-pad2_ 50
+r3  net-_r2-pad2_ net-_q2-pad1_ 590
+r7  net-_r6-pad2_ net-_q2-pad1_ 590
+r4  net-_q2-pad3_ net-_r11-pad2_ 300
+r9  net-_q4-pad3_ net-_r11-pad2_ 1.4k
+r11  net-_q6-pad3_ net-_r11-pad2_ 300
+r15  net-_q8-pad3_ net-_r11-pad2_ 400
+r16  net-_q11-pad3_ net-_r11-pad2_ 400
+r1  net-_q10-pad1_ net-_q1-pad1_ 2.4k
+r5  net-_q10-pad1_ net-_q3-pad1_ 2.4k
+r10  net-_q10-pad1_ net-_q10-pad2_ 1.1k
+r14  net-_q10-pad1_ net-_q7-pad1_ 1.1k
+r8  net-_q10-pad1_ net-_q11-pad2_ 10k
+r12  net-_q8-pad1_ net-_q1-pad1_ 7k
+r13  net-_q10-pad3_ net-_q3-pad1_ 7k
+q1  net-_q1-pad1_ net-_q1-pad2_ net-_q1-pad3_ npn
+q3  net-_q3-pad1_ net-_q3-pad2_ net-_q3-pad3_ npn
+q7  net-_q7-pad1_ net-_q1-pad1_ net-_q5-pad3_ npn
+q5  net-_q10-pad2_ net-_q3-pad1_ net-_q5-pad3_ npn
+q9  net-_q10-pad1_ net-_q7-pad1_ net-_q8-pad1_ npn
+q10  net-_q10-pad1_ net-_q10-pad2_ net-_q10-pad3_ npn
+q11  net-_q10-pad3_ net-_q11-pad2_ net-_q11-pad3_ npn
+q8  net-_q8-pad1_ net-_q11-pad2_ net-_q8-pad3_ npn
+q6  net-_q5-pad3_ net-_q11-pad2_ net-_q6-pad3_ npn
+q4  net-_q11-pad2_ net-_q11-pad2_ net-_q4-pad3_ npn
+q2  net-_q2-pad1_ net-_q11-pad2_ net-_q2-pad3_ npn
+
+.model npn  NPN( Is=14.34f Xti=3 Eg=1.11 Vaf=74.03 Bf=400 Ne=1.307 
+Ise=14.34f Ikf=.2847 Xtb=1.5 Br=6.092 Nc=2 Isc=0 Ikr=0 Rc=1 Cjc=7.306p
+Mjc=.3416 Vjc=.75 Fc=.5 Cje=22.01p Mje=.377 Vje=.75 Tr=46.91n Tf=411.1p
+Itf=.6 Vtf=1.7 Xtf=3 Rb=10)
+
+.ends LM733H
+\end{verbatim}
+\vspace{5mm}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.3]{lm733h_sch}
+	\caption{LM733H - Schematic}
+\end{figure}
+
+\vspace{5mm}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{lm733h_sim}
+	\caption{LM733H - Simulation Output}
+\end{figure}
+\vspace{5mm}
+\textbf{\Large Conclusion}
+\vspace{5mm}
+\\
+So after all research and discussion it is concluded that the solution for both digital simulation and parser problem is to make the subcircuit for every components required in the circuit. Also, Kicad being a PCB designing focused software give more preference to the shape of IC and the positioning of pins in the IC rather than what is the internal circuitory of the component. Also the above subcircuits for LM741 and LM733H support the solution. But the problem which arised in this case is the limited no of ports to represent pins of the subcircuit (which is only 8), whose solution is discussed in the next chapter.
+
 
 
 \chapter{\textbf{eSim}}
+
 \section{Increase External Pins for Sub-Circuits}
 \section{Introduced Rename Project Option}
 \section{Improve handling of unknown components}
