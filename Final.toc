@@ -1,7 +1,7 @@
 \contentsline {chapter}{\numberline {1}\textbf {Introduction}}{5}{chapter.1}
 \contentsline {section}{\numberline {1.1}KiCad}{6}{section.1.1}
 \contentsline {section}{\numberline {1.2}eSim}{7}{section.1.2}
-\contentsline {section}{\numberline {1.3}ngSpice}{8}{section.1.3}
+\contentsline {section}{\numberline {1.3}Ngspice}{8}{section.1.3}
 \contentsline {chapter}{\numberline {2}\textbf {KiCad Nightly Build (v5)}}{9}{chapter.2}
 \contentsline {section}{\numberline {2.1}Build Process}{9}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1}Build Tools}{9}{subsection.2.1.1}
@@ -34,20 +34,20 @@
 \contentsline {subsection}{\numberline {3.2.2}LM733H}{18}{subsection.3.2.2}
 \contentsline {chapter}{\numberline {4}\textbf {eSim}}{21}{chapter.4}
 \contentsline {section}{\numberline {4.1}Increase External Pins for Sub-Circuits}{21}{section.4.1}
-\contentsline {section}{\numberline {4.2}Introduced Rename Project Option}{21}{section.4.2}
-\contentsline {section}{\numberline {4.3}Improve handling of unknown components}{22}{section.4.3}
-\contentsline {section}{\numberline {4.4}Introduced workspace functionality in eSim}{22}{section.4.4}
-\contentsline {section}{\numberline {4.5}Improve the simulation dependecy problem in new ubuntu version}{22}{section.4.5}
-\contentsline {chapter}{\numberline {5}\textbf {Standalone Installer for eSim}}{24}{chapter.5}
-\contentsline {section}{\numberline {5.1}eSim's dependencies}{24}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Python 2.7}{24}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}PyQt4}{24}{subsection.5.1.2}
-\contentsline {subsection}{\numberline {5.1.3}Matplotlib}{24}{subsection.5.1.3}
-\contentsline {subsection}{\numberline {5.1.4}NgSpice}{24}{subsection.5.1.4}
-\contentsline {subsection}{\numberline {5.1.5}Kicad 4}{24}{subsection.5.1.5}
-\contentsline {section}{\numberline {5.2}PyInstaller}{25}{section.5.2}
-\contentsline {section}{\numberline {5.3}Installation Packages}{25}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Linux}{25}{subsection.5.3.1}
-\contentsline {subsubsection}{FPM}{25}{section*.31}
-\contentsline {subsection}{\numberline {5.3.2}Windows}{26}{subsection.5.3.2}
-\contentsline {chapter}{\numberline {6}\textbf {Conclusion and future work}}{27}{chapter.6}
+\contentsline {section}{\numberline {4.2}Improve handling of unknown components}{21}{section.4.2}
+\contentsline {section}{\numberline {4.3}Introduced Rename Project Option}{22}{section.4.3}
+\contentsline {section}{\numberline {4.4}Introduced workspace functionality in eSim}{23}{section.4.4}
+\contentsline {section}{\numberline {4.5}Improve the simulation dependency problem in new ubuntu version}{23}{section.4.5}
+\contentsline {chapter}{\numberline {5}\textbf {Standalone Installer for eSim}}{25}{chapter.5}
+\contentsline {section}{\numberline {5.1}eSim's dependencies}{25}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Python 2.7}{25}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}PyQt4}{25}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Matplotlib}{25}{subsection.5.1.3}
+\contentsline {subsection}{\numberline {5.1.4}NgSpice}{25}{subsection.5.1.4}
+\contentsline {subsection}{\numberline {5.1.5}Kicad 4}{25}{subsection.5.1.5}
+\contentsline {section}{\numberline {5.2}PyInstaller}{26}{section.5.2}
+\contentsline {section}{\numberline {5.3}Installation Packages}{26}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Linux}{26}{subsection.5.3.1}
+\contentsline {subsubsection}{FPM}{26}{section*.33}
+\contentsline {subsection}{\numberline {5.3.2}Windows}{27}{subsection.5.3.2}
+\contentsline {chapter}{\numberline {6}\textbf {Conclusion and future work}}{28}{chapter.6}

@@ -1,7 +1,7 @@
 \BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
 \BOOKMARK [1][-]{section.1.1}{KiCad}{chapter.1}% 2
 \BOOKMARK [1][-]{section.1.2}{eSim}{chapter.1}% 3
-\BOOKMARK [1][-]{section.1.3}{ngSpice}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.3}{Ngspice}{chapter.1}% 4
 \BOOKMARK [0][-]{chapter.2}{KiCad Nightly Build \(v5\)}{}% 5
 \BOOKMARK [1][-]{section.2.1}{Build Process}{chapter.2}% 6
 \BOOKMARK [2][-]{subsection.2.1.1}{Build Tools}{section.2.1}% 7
@@ -22,10 +22,10 @@
 \BOOKMARK [2][-]{subsection.3.2.2}{LM733H}{section.3.2}% 22
 \BOOKMARK [0][-]{chapter.4}{eSim}{}% 23
 \BOOKMARK [1][-]{section.4.1}{Increase External Pins for Sub-Circuits}{chapter.4}% 24
-\BOOKMARK [1][-]{section.4.2}{Introduced Rename Project Option}{chapter.4}% 25
-\BOOKMARK [1][-]{section.4.3}{Improve handling of unknown components}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.2}{Improve handling of unknown components}{chapter.4}% 25
+\BOOKMARK [1][-]{section.4.3}{Introduced Rename Project Option}{chapter.4}% 26
 \BOOKMARK [1][-]{section.4.4}{Introduced workspace functionality in eSim}{chapter.4}% 27
-\BOOKMARK [1][-]{section.4.5}{Improve the simulation dependecy problem in new ubuntu version}{chapter.4}% 28
+\BOOKMARK [1][-]{section.4.5}{Improve the simulation dependency problem in new ubuntu version}{chapter.4}% 28
 \BOOKMARK [0][-]{chapter.5}{Standalone Installer for eSim}{}% 29
 \BOOKMARK [1][-]{section.5.1}{eSim's dependencies}{chapter.5}% 30
 \BOOKMARK [2][-]{subsection.5.1.1}{Python 2.7}{section.5.1}% 31
