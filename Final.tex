@@ -509,8 +509,8 @@ Matplotlib is required for plotting simulations in eSim.  It is also a Python re
 The Ngspice library is used to provide Spice simulation support in the schematic editor. It is an external dependency.
 \subsection{Kicad 4}
 eSim uses Kicad 4 for schematic designs of circuits. Kicad 4 is also an external dependency.
-\section{\href{http://www.pyinstaller.org/}{pyintaller}}
-PyInstaller is a program that freezes (packages) Python programs into stand-alone executables, under Windows, Linux, Mac OS X, FreeBSD, Solaris and AIX. Its main advantages over similar tools are that PyInstaller works with Python 2.7 and 3.3—3.6, it builds smaller executables thanks to transparent compression, it is fully multi-platform, and use the OS support to load the dynamic libraries, thus ensuring full compatibility.\\
+\section{PyInstaller}
+\href{http://www.pyinstaller.org/}{PyIntaller} is a program that freezes (packages) Python programs into stand-alone executables, under Windows, Linux, Mac OS X, FreeBSD, Solaris and AIX. Its main advantages over similar tools are that PyInstaller works with Python 2.7 and 3.3—3.6, it builds smaller executables thanks to transparent compression, it is fully multi-platform, and use the OS support to load the dynamic libraries, thus ensuring full compatibility.\\
 \\
 The main goal of PyInstaller is to be compatible with 3rd-party packages out-of-the-box. This means that, with PyInstaller, all the required tricks to make external packages work are already integrated within PyInstaller itself so that there is no user intervention required.\\
 \\
@@ -518,8 +518,8 @@ With PyInstaller, a stand-alone executable can be created for eSim which wouldn'
 \section{Installation Packages}
 \subsection{Linux}
 Creating Linux installation packages can be lengthy process if not done with the right tools. Since Linux has so many distributions and almost all of them have a different installation package format, creating installation package for each individual distribution can be a tedious part of the development cycle. To avoid the tediousness, several open-source tools like FPM can be used.
-\subsubsection{\href{https://github.com/jordansissel/fpm}{FPM}}
-FPM is an open-source utility tool written to simplify the process of packaging softwares for various Linux distributions. FPM makes it possible to pack a software's binary into installation package with a single command.\\
+\subsubsection{FPM}
+\href{https://github.com/jordansissel/fpm}{FPM} is an open-source utility tool written to simplify the process of packaging softwares for various Linux distributions. FPM makes it possible to pack a software's binary into installation package with a single command.\\
 \\
 With FPM, following installation packages can be generated
 \subsubsection*{Debian based Package (.deb)}
@@ -562,10 +562,10 @@ Following command can be issued to pack eSim into \texttt{rpm} package
 \subsubsection*{Shell Script Installer}
 A generic self extracting shell script based installation package can also be generated using FPM. A shell script based installer should be able to install itself on any Linux based operating system by default.
 \subsection{Windows}
-Creating a Windows installer requires use of another packaging software called InnoSetup.
-\subsubsection{\href{http://jrsoftware.org/isinfo.php}{InnoSetup}}
-Inno Setup is a free software script-driven installation system created in Delphi by Jordan Russell. The first version was released in 1997.\\
+Creating a Windows installer requires use of packaging software called InnoSetup.
 \\
+The setup script \texttt{esim-setup-win.iss} will first add eSim binary files and the kicad and ngspice compressed files to the setup, then registry will be added to run kicad (v4) and ngspice (27) via cmd and finally deletes compressed files. Inno setup compiler is used to change and compile setup script. Final setup will output in \texttt{./dist} directory.
+
 
 \chapter{\textbf{Conclusion and future work}}
 After complete our fellowship, we had been exposed to Open-Source and programmer working life. Throughout our fellowship, we could understand more about the definition of an IT technician and programmer and prepare myself to become a responsible and innovative technician and programmer in future. Along my training period, I realize that observation is a main element to find out the root cause of a problem. Not only for my project but daily activities too. During my project, I cooperate with my colleagues and operators to determine the problems. Moreover, the project indirectly helps me to learn independently, discipline myself, be considerate/patient, self-trust, take initiative and the ability to solve problems. Besides, my communication skills is strengthen as well when communicating with others. During my training period, I have received criticism and advice from engineers and technician when mistakes were made. However, those advices are useful guidance for me to change myself and avoid myself making the same mistakes again. Apart from that, I had also developed my programming skills through various programs that I had done. This also helps sharpen my skills in VB.net 2013 since most of the programs were done with the aid of Visual Studio 2013. In sum, the activities that I had learned during industrial training really are useful for me in future to face challenges in a working environment. Throughout the industrial training, I found that several things are important: 
@@ -583,7 +583,5 @@ Colleague Interactions
 In working environment, teamwork is vital in contributing to a strong organization. Teamwork is also essential in reaching the goals of the organization as an entity. Thus, communicating and sharing is much needed in the working environment. Therefore, we should be respecting each other in work, and working together as a team, instead of working alone. This is because working together as a team is easier in reaching our targets, rather than operating individually. 
 
 I would like to once again appreciate everyone who has made my industrial training a superb experience
-
-\chapter{\textbf{References}}
 
 \end{document}
