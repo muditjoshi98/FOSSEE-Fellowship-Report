@@ -1,24 +1,55 @@
-\contentsline {chapter}{\numberline {1}\textbf {Introduction}}{4}{chapter.1}
-\contentsline {section}{\numberline {1.1}KiCad}{5}{section.1.1}
-\contentsline {section}{\numberline {1.2}eSim}{6}{section.1.2}
-\contentsline {section}{\numberline {1.3}ngSpice}{7}{section.1.3}
-\contentsline {chapter}{\numberline {2}\textbf {KiCad Nightly Build (v5)}}{8}{chapter.2}
-\contentsline {section}{\numberline {2.1}Building KiCad}{8}{section.2.1}
-\contentsline {section}{\numberline {2.2}Bug : Autoplot PDF when saving projects}{8}{section.2.2}
-\contentsline {section}{\numberline {2.3}Bug : Add hotkey for opening context menu in eeschema}{9}{section.2.3}
-\contentsline {section}{\numberline {2.4}Bug : Ability to open project folder in host operating system}{10}{section.2.4}
-\contentsline {section}{\numberline {2.5}Bug : Inconsistent reference field parsing during editor copy}{10}{section.2.5}
-\contentsline {chapter}{\numberline {3}\textbf {Digital Simulation and Component Parser}}{11}{chapter.3}
-\contentsline {section}{\numberline {3.1}Digital Simulation in KiCad}{11}{section.3.1}
-\contentsline {section}{\numberline {3.2}Parser to increase supported components in eSim}{12}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}LM741}{12}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}LM733H}{14}{subsection.3.2.2}
-\contentsline {chapter}{\numberline {4}\textbf {eSim}}{17}{chapter.4}
-\contentsline {section}{\numberline {4.1}Increase External Pins for Sub-Circuits}{17}{section.4.1}
-\contentsline {section}{\numberline {4.2}Introduced Rename Project Option}{17}{section.4.2}
-\contentsline {section}{\numberline {4.3}Improve handling of unknown components}{18}{section.4.3}
-\contentsline {section}{\numberline {4.4}Introduced workspace functionality in eSim}{18}{section.4.4}
-\contentsline {section}{\numberline {4.5}Improve the simulation dependecy problem in new ubuntu version}{18}{section.4.5}
-\contentsline {chapter}{\numberline {5}\textbf {Standalone Installer for eSim}}{20}{chapter.5}
-\contentsline {chapter}{\numberline {6}\textbf {Conclusion and future work}}{21}{chapter.6}
-\contentsline {chapter}{\numberline {7}\textbf {References}}{23}{chapter.7}
+\contentsline {chapter}{\numberline {1}\textbf {Introduction}}{5}{chapter.1}
+\contentsline {section}{\numberline {1.1}KiCad}{6}{section.1.1}
+\contentsline {section}{\numberline {1.2}eSim}{7}{section.1.2}
+\contentsline {section}{\numberline {1.3}ngSpice}{8}{section.1.3}
+\contentsline {chapter}{\numberline {2}\textbf {KiCad Nightly Build (v5)}}{9}{chapter.2}
+\contentsline {section}{\numberline {2.1}Build Process}{9}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Build Tools}{9}{subsection.2.1.1}
+\contentsline {subsubsection}{\href {https://cmake.org/}{Cmake}}{9}{section*.7}
+\contentsline {subsubsection}{\href {http://www.swig.org/}{SWIG}}{9}{section*.8}
+\contentsline {subsection}{\numberline {2.1.2}Library Dependencies}{9}{subsection.2.1.2}
+\contentsline {subsubsection}{\href {https://www.wxwidgets.org/}{wxWidgets}}{9}{section*.9}
+\contentsline {subsubsection}{\href {http://www.boost.org/}{Boost C++ Libraries}}{9}{section*.10}
+\contentsline {subsubsection}{\href {http://glew.sourceforge.net/}{OpenGL Extension Wrangler}}{9}{section*.11}
+\contentsline {subsubsection}{\href {http://glm.g-truc.net/}{OpenGL Mathematics Library}}{10}{section*.12}
+\contentsline {subsubsection}{\href {https://www.opengl.org/resources/libraries/glut/}{OpenGL Utility Toolkit}}{10}{section*.13}
+\contentsline {subsubsection}{\href {http://cairographics.org/}{Cairo 2D Graphics Library}}{10}{section*.14}
+\contentsline {subsubsection}{\href {http://www.python.org/}{Python}}{10}{section*.15}
+\contentsline {subsubsection}{\href {http://wxpython.org/}{wxPython}}{10}{section*.16}
+\contentsline {subsubsection}{\href {https://github.com/tpaviot/oce}{OpenCascade Community Edition}}{10}{section*.17}
+\contentsline {subsubsection}{\href {https://ngspice.sourceforge.net/}{ngSpice}}{10}{section*.18}
+\contentsline {subsection}{\numberline {2.1.3}Building on Linux}{10}{subsection.2.1.3}
+\contentsline {section}{\numberline {2.2}Bug : Autoplot PDF when saving projects}{11}{section.2.2}
+\contentsline {section}{\numberline {2.3}Bug : Add hotkey for opening context menu in eeschema}{11}{section.2.3}
+\contentsline {section}{\numberline {2.4}Bug : Inconsistent reference field parsing during editor copy}{12}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Description}{13}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Solution}{13}{subsection.2.4.2}
+\contentsline {section}{\numberline {2.5}Bug: Ability to open project folder in host operating system}{13}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Description}{13}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}Solution}{13}{subsection.2.5.2}
+\contentsline {chapter}{\numberline {3}\textbf {Digital Simulation and Component Parser}}{15}{chapter.3}
+\contentsline {section}{\numberline {3.1}Digital Simulation in KiCad}{15}{section.3.1}
+\contentsline {section}{\numberline {3.2}Parser to increase supported components in eSim}{16}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}LM741}{16}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}LM733H}{18}{subsection.3.2.2}
+\contentsline {chapter}{\numberline {4}\textbf {eSim}}{21}{chapter.4}
+\contentsline {section}{\numberline {4.1}Increase External Pins for Sub-Circuits}{21}{section.4.1}
+\contentsline {section}{\numberline {4.2}Introduced Rename Project Option}{21}{section.4.2}
+\contentsline {section}{\numberline {4.3}Improve handling of unknown components}{22}{section.4.3}
+\contentsline {section}{\numberline {4.4}Introduced workspace functionality in eSim}{22}{section.4.4}
+\contentsline {section}{\numberline {4.5}Improve the simulation dependecy problem in new ubuntu version}{22}{section.4.5}
+\contentsline {chapter}{\numberline {5}\textbf {Standalone Installer for eSim}}{24}{chapter.5}
+\contentsline {section}{\numberline {5.1}eSim's dependencies}{24}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Python 2.7}{24}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}PyQt4}{24}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Matplotlib}{24}{subsection.5.1.3}
+\contentsline {subsection}{\numberline {5.1.4}NgSpice}{24}{subsection.5.1.4}
+\contentsline {subsection}{\numberline {5.1.5}Kicad 4}{24}{subsection.5.1.5}
+\contentsline {section}{\numberline {5.2}\href {http://www.pyinstaller.org/}{pyintaller}}{25}{section.5.2}
+\contentsline {section}{\numberline {5.3}Installation Packages}{25}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Linux}{25}{subsection.5.3.1}
+\contentsline {subsubsection}{\href {https://github.com/jordansissel/fpm}{FPM}}{25}{section*.31}
+\contentsline {subsection}{\numberline {5.3.2}Windows}{26}{subsection.5.3.2}
+\contentsline {subsubsection}{\href {http://jrsoftware.org/isinfo.php}{InnoSetup}}{26}{section*.35}
+\contentsline {chapter}{\numberline {6}\textbf {Conclusion and future work}}{28}{chapter.6}
+\contentsline {chapter}{\numberline {7}\textbf {References}}{30}{chapter.7}

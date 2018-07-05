@@ -3,22 +3,39 @@
 \BOOKMARK [1][-]{section.1.2}{eSim}{chapter.1}% 3
 \BOOKMARK [1][-]{section.1.3}{ngSpice}{chapter.1}% 4
 \BOOKMARK [0][-]{chapter.2}{KiCad Nightly Build \(v5\)}{}% 5
-\BOOKMARK [1][-]{section.2.1}{Building KiCad}{chapter.2}% 6
-\BOOKMARK [1][-]{section.2.2}{Bug : Autoplot PDF when saving projects}{chapter.2}% 7
-\BOOKMARK [1][-]{section.2.3}{Bug : Add hotkey for opening context menu in eeschema}{chapter.2}% 8
-\BOOKMARK [1][-]{section.2.4}{Bug : Ability to open project folder in host operating system}{chapter.2}% 9
-\BOOKMARK [1][-]{section.2.5}{Bug : Inconsistent reference field parsing during editor copy}{chapter.2}% 10
-\BOOKMARK [0][-]{chapter.3}{Digital Simulation and Component Parser}{}% 11
-\BOOKMARK [1][-]{section.3.1}{Digital Simulation in KiCad}{chapter.3}% 12
-\BOOKMARK [1][-]{section.3.2}{Parser to increase supported components in eSim}{chapter.3}% 13
-\BOOKMARK [2][-]{subsection.3.2.1}{LM741}{section.3.2}% 14
-\BOOKMARK [2][-]{subsection.3.2.2}{LM733H}{section.3.2}% 15
-\BOOKMARK [0][-]{chapter.4}{eSim}{}% 16
-\BOOKMARK [1][-]{section.4.1}{Increase External Pins for Sub-Circuits}{chapter.4}% 17
-\BOOKMARK [1][-]{section.4.2}{Introduced Rename Project Option}{chapter.4}% 18
-\BOOKMARK [1][-]{section.4.3}{Improve handling of unknown components}{chapter.4}% 19
-\BOOKMARK [1][-]{section.4.4}{Introduced workspace functionality in eSim}{chapter.4}% 20
-\BOOKMARK [1][-]{section.4.5}{Improve the simulation dependecy problem in new ubuntu version}{chapter.4}% 21
-\BOOKMARK [0][-]{chapter.5}{Standalone Installer for eSim}{}% 22
-\BOOKMARK [0][-]{chapter.6}{Conclusion and future work}{}% 23
-\BOOKMARK [0][-]{chapter.7}{References}{}% 24
+\BOOKMARK [1][-]{section.2.1}{Build Process}{chapter.2}% 6
+\BOOKMARK [2][-]{subsection.2.1.1}{Build Tools}{section.2.1}% 7
+\BOOKMARK [2][-]{subsection.2.1.2}{Library Dependencies}{section.2.1}% 8
+\BOOKMARK [2][-]{subsection.2.1.3}{Building on Linux}{section.2.1}% 9
+\BOOKMARK [1][-]{section.2.2}{Bug : Autoplot PDF when saving projects}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.3}{Bug : Add hotkey for opening context menu in eeschema}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.4}{Bug : Inconsistent reference field parsing during editor copy}{chapter.2}% 12
+\BOOKMARK [2][-]{subsection.2.4.1}{Description}{section.2.4}% 13
+\BOOKMARK [2][-]{subsection.2.4.2}{Solution}{section.2.4}% 14
+\BOOKMARK [1][-]{section.2.5}{Bug: Ability to open project folder in host operating system}{chapter.2}% 15
+\BOOKMARK [2][-]{subsection.2.5.1}{Description}{section.2.5}% 16
+\BOOKMARK [2][-]{subsection.2.5.2}{Solution}{section.2.5}% 17
+\BOOKMARK [0][-]{chapter.3}{Digital Simulation and Component Parser}{}% 18
+\BOOKMARK [1][-]{section.3.1}{Digital Simulation in KiCad}{chapter.3}% 19
+\BOOKMARK [1][-]{section.3.2}{Parser to increase supported components in eSim}{chapter.3}% 20
+\BOOKMARK [2][-]{subsection.3.2.1}{LM741}{section.3.2}% 21
+\BOOKMARK [2][-]{subsection.3.2.2}{LM733H}{section.3.2}% 22
+\BOOKMARK [0][-]{chapter.4}{eSim}{}% 23
+\BOOKMARK [1][-]{section.4.1}{Increase External Pins for Sub-Circuits}{chapter.4}% 24
+\BOOKMARK [1][-]{section.4.2}{Introduced Rename Project Option}{chapter.4}% 25
+\BOOKMARK [1][-]{section.4.3}{Improve handling of unknown components}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.4}{Introduced workspace functionality in eSim}{chapter.4}% 27
+\BOOKMARK [1][-]{section.4.5}{Improve the simulation dependecy problem in new ubuntu version}{chapter.4}% 28
+\BOOKMARK [0][-]{chapter.5}{Standalone Installer for eSim}{}% 29
+\BOOKMARK [1][-]{section.5.1}{eSim's dependencies}{chapter.5}% 30
+\BOOKMARK [2][-]{subsection.5.1.1}{Python 2.7}{section.5.1}% 31
+\BOOKMARK [2][-]{subsection.5.1.2}{PyQt4}{section.5.1}% 32
+\BOOKMARK [2][-]{subsection.5.1.3}{Matplotlib}{section.5.1}% 33
+\BOOKMARK [2][-]{subsection.5.1.4}{NgSpice}{section.5.1}% 34
+\BOOKMARK [2][-]{subsection.5.1.5}{Kicad 4}{section.5.1}% 35
+\BOOKMARK [1][-]{section.5.2}{pyintaller}{chapter.5}% 36
+\BOOKMARK [1][-]{section.5.3}{Installation Packages}{chapter.5}% 37
+\BOOKMARK [2][-]{subsection.5.3.1}{Linux}{section.5.3}% 38
+\BOOKMARK [2][-]{subsection.5.3.2}{Windows}{section.5.3}% 39
+\BOOKMARK [0][-]{chapter.6}{Conclusion and future work}{}% 40
+\BOOKMARK [0][-]{chapter.7}{References}{}% 41

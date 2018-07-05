@@ -144,7 +144,50 @@ Ngspice is, anyway, more than the simple sum of the packages above, as many peop
 
 
 \chapter{\textbf{KiCad Nightly Build (v5)}}
-\section{Building KiCad} 
+\section{Build Process}
+Kicad relies on various build tools and library dependencies for 
+\subsection{Build Tools}
+\subsubsection{\href{https://cmake.org/}{Cmake}}
+Kicad uses Cmake to generate native makefiles for various platforms.
+\subsubsection{\href{http://www.swig.org/}{SWIG}}
+SWIG is used to generate the Python scripting language extensions for KiCad. SWIG is not required if you are not going to build the KiCad scripting extension.
+\subsection{Library Dependencies}
+\subsubsection{\href{https://www.wxwidgets.org/}{wxWidgets}}
+wxWidgets is the graphical user interface (GUI) library used by KiCad. The current minimum version is 3.0.0. However, 3.0.2 should be used whenever possible as there are some known bugs in prior versions that can cause problems on some platforms.
+\subsubsection{\href{http://www.boost.org/}{Boost C++ Libraries}}
+The Boost C++ library is required only if you intend to build KiCad with the system installed version of Boost instead of the default internally built version. If you use the system installed version of Boost, version 1.56 or greater is required.
+\subsubsection{\href{http://glew.sourceforge.net/}{OpenGL Extension Wrangler}}
+The OpenGL Extension Wrangler is an OpenGL helper library used by the KiCad graphics abstraction library and is always required to build KiCad.
+\subsubsection{\href{http://glm.g-truc.net/}{OpenGL Mathematics Library}}
+The OpenGL Mathematics Library is an OpenGL helper library used by the KiCad graphics abstraction library and is always required to build KiCad.
+\subsubsection{\href{https://www.opengl.org/resources/libraries/glut/}{OpenGL Utility Toolkit}}
+The OpenGL Utility Toolkit is an OpenGL helper library used by the KiCad graphics abstraction library [GAL] and is always required to build KiCad.
+\subsubsection{\href{http://cairographics.org/}{Cairo 2D Graphics Library}}
+The Cairo 2D graphics library is used as a fallback rendering canvas when OpenGL is not available and is always required to build KiCad.
+\subsubsection{\href{http://www.python.org/}{Python}}
+The Python programming language is used to provide scripting support to KiCad. It needs to be installed unless the KiCad scripting build configuration option is disabled.
+\subsubsection{\href{http://wxpython.org/}{wxPython}}
+The wxPython library is used to provide a scripting console for Pcbnew. It needs to be installed unless the wxPython scripting build configuration option is disabled.
+\subsubsection{\href{https://github.com/tpaviot/oce}{OpenCascade Community Edition}}
+The OpenCascade Community Edition is used to provide support for loading and saving 3D model file formats such as STEP.
+\subsubsection{\href{https://ngspice.sourceforge.net/}{ngSpice}}
+The Ngspice library is used to provide Spice simulation support in the schematic editor.
+\subsection{Building on Linux}
+To build Kicad from source, first Cmake is used to generate the makefile for target platform\\
+\begin{verbatim}
+    cd <kicad source mirror>
+    mkdir -p build/debug
+    cmake -DCMAKE_BUILD_TYPE=Release ../../
+\end{verbatim}
+Once Cmake finishes generating makefile, run\\
+\begin{verbatim}
+    make
+    sudo make install
+\end{verbatim}
+By default, Kicad is installed on system root in Linux. Installation path can be changed by using following while generating makefile using Cmake\\
+\begin{verbatim}
+    cmake ... -DCMAKE_INSTALL_PREFIX=<desired path> ...
+\end{verbatim}
 \section{Bug : Autoplot PDF when saving projects}
 This Bug : \verb!#! 1636549 is a feature addition in Kicad which is requested by a user of Kicad. It is somtime necesary to have the schematic in a handy format (like pdf) which can be easily accesed by other non-electric background people. So the requirement is to automatically plot the schematic in PDF format whenever the user saves the schematic, as the default plot method is time consuming.
 \vspace{3mm}
@@ -192,9 +235,39 @@ case HK_RIGHT_CLICK:
             m_canvas->SetIgnoreMouseEvents(false);
         }
 \end{verbatim}
-\section{Bug : Ability to open project folder in host operating system}
 \section{Bug : Inconsistent reference field parsing during editor copy}
+The bug was posted on Kicad's issue tracker as \href{https://bugs.launchpad.net/kicad/+bug/1748789}{Bug\#1748789} on Launchpad.
+\subsection{Description}
+``Copy seems to parse the reference such that the prefix is treated as everything up to and including the last non-numeric character. This was a pleasant surprise after the behaviour of KiCAD 4, and should be kept. However, edit seems to parse the reference differently such that the prefix is treated as everything up to but not including the first non-numeric character. These are inconsistent. I would like to have the prefix for both operations being everything up to and including the last non-numeric character."
+\subsection{Solution}
+From the bug description, it is clear that the required behaviour should parse the last numeric value for the users to be easily able to edit it.
+\section{Bug: Ability to open project folder in host operating system}
+This is not a bug but a feature request in Kicad. The request is filed as \href{https://bugs.launchpad.net/kicad/+bug/1584977}{Bug\#1584977} on Launchpad.
+\subsection{Description}
+``Many IDEs and other project-based tools let you open the project's root folder (directory) in the host OS's file manager. I think it would be great if KiCad also had this ability."
+\subsection{Solution}
+A simple solution this problem is using Cmake to determine the target operating system and using native shell commands to open project directory using default file manager software.\\
+\\
+To determine the target operating system, following constants can be used
 
+\begin{verbatim}
+#if defined(__linux__) || defined(__FreeBSD__)
+#define OPEN_FM_CMD_BASE "xdg-open"
+#elif defined(__WXMAC__)
+#define OPEN_FM_CMD_BASE "open"
+#elif defined(_WIN32)
+#define OPEN_FM_CMD_BASE "explorer"
+#else
+#error "Unsupported platform!"
+#endif
+\end{verbatim}
+
+When the compiler pre-processes above code, a constant \texttt{OPEN\_FM\_CMD\_BASE} will be defined with its value set to appropriate command that can be used to open file explorer on the target operating system.\\
+\\
+Now, we execute the obtained command with proper arguments to open project directory in operating system's default file explorer
+\begin{verbatim}
+wxExecute( wxT(OPEN_FM_CMD_BASE " " + project_dir ), wxEXEC_ASYNC, NULL );
+\end{verbatim}
 
 \chapter{\textbf{Digital Simulation and Component Parser}}
 This Chapter describes about the simulation in ngspice and about the component libraries of Kicad and eSim , similarities and differences between them. Problem description is to find out the reason behind the faliure of ngspice in simulating the digital circuits and some analog circuits in Kicad and to find out if we can use the components of kicad in eSim to increase the eSim library.
@@ -424,6 +497,75 @@ Link to commit : \url{https://github.com/FOSSEE/eSim/commit/8699521}
 \\ 
 
 \chapter{\textbf{Standalone Installer for eSim}}
+eSim is written in Python 2 and relies on various Python related dependencies to work correctly. In-order for users to be able to install eSim, they had to make sure that several Python related and various other dependencies were installed on their system beforehand. This chapter focuses on overcoming these problems by creating stand-alone executables and native installation packages for eSim.
+\section{eSim's dependencies}
+\subsection{Python 2.7}
+eSim is written in Python and requires Python 2.7 interpreter to run.
+\subsection{PyQt4}
+eSim uses PyQt4 GUI toolkit for its user interface. It is a Python related dependency for eSim.
+\subsection{Matplotlib}
+Matplotlib is required for plotting simulations in eSim.  It is also a Python related dependency for eSim.
+\subsection{NgSpice}
+The Ngspice library is used to provide Spice simulation support in the schematic editor. It is an external dependency.
+\subsection{Kicad 4}
+eSim uses Kicad 4 for schematic designs of circuits. Kicad 4 is also an external dependency.
+\section{\href{http://www.pyinstaller.org/}{pyintaller}}
+PyInstaller is a program that freezes (packages) Python programs into stand-alone executables, under Windows, Linux, Mac OS X, FreeBSD, Solaris and AIX. Its main advantages over similar tools are that PyInstaller works with Python 2.7 and 3.3—3.6, it builds smaller executables thanks to transparent compression, it is fully multi-platform, and use the OS support to load the dynamic libraries, thus ensuring full compatibility.\\
+\\
+The main goal of PyInstaller is to be compatible with 3rd-party packages out-of-the-box. This means that, with PyInstaller, all the required tricks to make external packages work are already integrated within PyInstaller itself so that there is no user intervention required.\\
+\\
+With PyInstaller, a stand-alone executable can be created for eSim which wouldn't require any Python-related dependencies to be installed on user's system. With Python related dependencies not required anymore, external dependencies such as Kicad 4 and ngspice can be installed using native installation packages provided by their developers.
+\section{Installation Packages}
+\subsection{Linux}
+Creating Linux installation packages can be lengthy process if not done with the right tools. Since Linux has so many distributions and almost all of them have a different installation package format, creating installation package for each individual distribution can be a tedious part of the development cycle. To avoid the tediousness, several open-source tools like FPM can be used.
+\subsubsection{\href{https://github.com/jordansissel/fpm}{FPM}}
+FPM is an open-source utility tool written to simplify the process of packaging softwares for various Linux distributions. FPM makes it possible to pack a software's binary into installation package with a single command.\\
+\\
+With FPM, following installation packages can be generated
+\subsubsection*{Debian based Package (.deb)}
+FPM can be used to generate a fully functional installation package for Debian based Linux distributions such as Linux Ubuntu, Linux Mint and Debian itself.\\
+\\
+External dependencies can be passed to FPM with \texttt{--depends} flag. eSim has only two external dependencies, i.e., kicad and ngspice.\\
+\\
+Following command can be issued to pack eSim into debian package
+\begin{verbatim}
+    fpm --output-type deb \
+    --input-type dir --force \
+    --package "dist/$NAME.deb" \
+    --name "$NAME" --version "$VERSION" \
+    --license "$LICENSE" --vendor "$VENDOR" \
+    --description "$DESCRIPTION" --url "$URL" \
+    --depends "kicad=4.0" --depends "ngspice" \
+    --deb-dist "stable" \
+    --deb-no-default-config-files ./dist/esim=/opt \
+    esim-linux.desktop-template=/usr/share/applications/esim.desktop \
+    esim-launcher.sh=/usr/local/bin/esim
+\end{verbatim}
+\subsubsection*{Red Hat Linux based Package (.rpm)}
+FPM can be used to generate a fully functional installation package for Red Hat based Linux distributions such as Fedora, OpenSUSE and CentOS.\\
+\\
+External dependencies can be passed to FPM with \texttt{--depends} flag. eSim has only two external dependencies, i.e., kicad and ngspice.\\
+\\
+Following command can be issued to pack eSim into \texttt{rpm} package
+\begin{verbatim}
+    fpm --output-type rpm \
+    --input-type dir --force \
+    --package "dist/$NAME.rpm" \
+    --name "$NAME" --version "$VERSION" \
+    --license "$LICENSE" --vendor "$VENDOR" \
+    --description "$DESCRIPTION" --url "$URL" \
+    --depends "kicad-4.0" --depends "ngspice" \
+    ./dist/esim=/opt \
+    esim-linux.desktop-template=/usr/share/applications/esim.desktop \
+    esim-launcher.sh=/usr/local/bin/esim
+\end{verbatim}
+\subsubsection*{Shell Script Installer}
+A generic self extracting shell script based installation package can also be generated using FPM. A shell script based installer should be able to install itself on any Linux based operating system by default.
+\subsection{Windows}
+Creating a Windows installer requires use of another packaging software called InnoSetup.
+\subsubsection{\href{http://jrsoftware.org/isinfo.php}{InnoSetup}}
+Inno Setup is a free software script-driven installation system created in Delphi by Jordan Russell. The first version was released in 1997.\\
+\\
 
 \chapter{\textbf{Conclusion and future work}}
 After complete our fellowship, we had been exposed to Open-Source and programmer working life. Throughout our fellowship, we could understand more about the definition of an IT technician and programmer and prepare myself to become a responsible and innovative technician and programmer in future. Along my training period, I realize that observation is a main element to find out the root cause of a problem. Not only for my project but daily activities too. During my project, I cooperate with my colleagues and operators to determine the problems. Moreover, the project indirectly helps me to learn independently, discipline myself, be considerate/patient, self-trust, take initiative and the ability to solve problems. Besides, my communication skills is strengthen as well when communicating with others. During my training period, I have received criticism and advice from engineers and technician when mistakes were made. However, those advices are useful guidance for me to change myself and avoid myself making the same mistakes again. Apart from that, I had also developed my programming skills through various programs that I had done. This also helps sharpen my skills in VB.net 2013 since most of the programs were done with the aid of Visual Studio 2013. In sum, the activities that I had learned during industrial training really are useful for me in future to face challenges in a working environment. Throughout the industrial training, I found that several things are important: 
