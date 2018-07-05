@@ -352,19 +352,96 @@ So after all research and discussion it is concluded that the solution for both 
 
 
 \chapter{\textbf{eSim}}
-
+This chapter emphasises on the work done on eSim EDA software, bug fixes, feature additions, and improvement in working.
 \section{Increase External Pins for Sub-Circuits}
+The problem is inability to make sub-circuits of components having more than 8 pins. It is found that the component \texttt{port} that represents pins of the IC is only 8 so for the ICs having more than 8 pins, their subcircuits cannot be made.
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.3]{port}
+	\caption{eSim\_Miscellaneous - PORT}
+\end{figure} 
+\\
+It is found that the \texttt{port} component, in \texttt{eSim\_Miscellaneous.lib} library file have only option for 8 ports. By increasing them in the \texttt{.lib} file solved the problem.
+\\
+Now the user can make subcircuits for ICs having upto 26 ports which in turn open the way to increase the number of components in eSim to a large extent.
+\\
+To test the change subcircuits of LM733H Operational Amplifier was made, whose
+sub-circuit, schematic, and simulation is shown in previous chapter.
+\vspace{3mm}
+\\
+Link to commit : \url{https://github.com/FOSSEE/eSim/commit/d48bcd6}
+\\
 \section{Introduced Rename Project Option}
+asasd
 \section{Improve handling of unknown components}
+asdasd
 \section{Introduced workspace functionality in eSim}
-\section{Minor Bug Fix and improving code usability}
+The workspace feature in eSim is not functioning properly. There is no option for user the set default workspace, at every start it will ask for the workspace. And also even if we change the workspace, eSim will show the default software to the user and lastly project are not workspace specific i.e. for any workspace projects of all workspaces will be shown.
+\\
+Solution for this problem involves the addition of \texttt{Default Workspace} option in the workspace dialog box, and adding the ability to change the workspace after esim is started.
+\begin{figure}[h]
+	\centering
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{esim1}
+		\caption{Default Workspace Option}
+	\end{minipage}\hfill
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{esim2}
+		\caption{Briefcase icon : To change workspace}
+	\end{minipage}
+\end{figure}
+\\
+To make projects separated according to workspace, the .projectexplorer file which identifies the projects opened is moved from \texttt{home} folder to the respective workspace folder which make it easier for eSim to classify the projects, and also saves time to unnecessarily process other workspace files.
+\vspace{3mm}
+\\
+Link to commit : \url{https://github.com/FOSSEE/eSim/commit/4347e5d}
+\\
+\hspace*{28mm} : \url{https://github.com/FOSSEE/eSim/commit/316e3e7}
+\\ 
+\section{Improve the simulation dependecy problem in new ubuntu version}
+This problem appears in newer version of ubuntu (like 18.04). When the user will run simulation for the first time in a project it will not work. Reason being, the function uses ngspice to simulate and then stores it's value in files \texttt{plot\_data\_i.txt} and \texttt{plot\_data\_v.txt} which is used to plot graph in eSim. Ngspice uses \textbf{xterm} terminal emulator to run, which is removed from newer versions of ubuntu. Hence the \texttt{file not found} error will be shown.
+\\
+This problem is also marked as \verb|#|\texttt{Need Permanent Solution} in the code.
+\newpage
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{esim3}
+	\caption{New way of simulation and ngspice message}
+\end{figure} 
+Now all the information related to simulation will be shown in eSim window :
+\begin{itemize}
+	\itemsep0em
+	\item Graph output will come as earlier
+	\item Ngspice processing message will come in eSim console window.
+	\item User don't need to refer ngspice console.
+\end{itemize}
+\vspace{3mm}
+Link to commit : \url{https://github.com/FOSSEE/eSim/commit/8699521}
+\\
+\hspace*{28mm} : \url{https://github.com/FOSSEE/eSim/commit/231cd1f}
+\\ 
 
 \chapter{\textbf{Standalone Installer for eSim}}
 
 \chapter{\textbf{Conclusion and future work}}
+After complete our fellowship, we had been exposed to Open-Source and programmer working life. Throughout our fellowship, we could understand more about the definition of an IT technician and programmer and prepare myself to become a responsible and innovative technician and programmer in future. Along my training period, I realize that observation is a main element to find out the root cause of a problem. Not only for my project but daily activities too. During my project, I cooperate with my colleagues and operators to determine the problems. Moreover, the project indirectly helps me to learn independently, discipline myself, be considerate/patient, self-trust, take initiative and the ability to solve problems. Besides, my communication skills is strengthen as well when communicating with others. During my training period, I have received criticism and advice from engineers and technician when mistakes were made. However, those advices are useful guidance for me to change myself and avoid myself making the same mistakes again. Apart from that, I had also developed my programming skills through various programs that I had done. This also helps sharpen my skills in VB.net 2013 since most of the programs were done with the aid of Visual Studio 2013. In sum, the activities that I had learned during industrial training really are useful for me in future to face challenges in a working environment. Throughout the industrial training, I found that several things are important: 
+
+Critical and Analytical Thinking
+To organize our tasks and assignment, we need to analyze our problems and assignment, and to formulate a good solution to the problem. We would have to set contingency plan for the solution, so that we are well prepared for the unforeseeable situations. 
+
+Time Management
+As overall technician and programmer are always racing against tight timeline and packed schedule, a proper time management will minimize facing overdue deadlines. An effective time management allows us to do our assignment efficiently and meet our schedules. Scheduling avoids time wastage and allows us to plan ahead, and gaining more as a result. 
+
+Goal Management
+Opposing to a Herculean goal seemed to be reachable at first sight, it is better to sub-divide the goals to a few achievable tasks, so that we will be gaining more confidence by accomplishing those tasks. 
+
+Colleague Interactions
+In working environment, teamwork is vital in contributing to a strong organization. Teamwork is also essential in reaching the goals of the organization as an entity. Thus, communicating and sharing is much needed in the working environment. Therefore, we should be respecting each other in work, and working together as a team, instead of working alone. This is because working together as a team is easier in reaching our targets, rather than operating individually. 
+
+I would like to once again appreciate everyone who has made my industrial training a superb experience
 
 \chapter{\textbf{References}}
 
 \end{document}
-
-

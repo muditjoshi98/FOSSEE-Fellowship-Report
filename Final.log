@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.7.2)  5 JUL 2018 01:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.7.2)  5 JUL 2018 14:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -438,41 +438,41 @@ Missing character: There is no “ in font cmr12!
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
-<images/KiCad-Logo.png, id=224, 336.25626pt x 137.51375pt>
+<images/KiCad-Logo.png, id=235, 336.25626pt x 137.51375pt>
 File: images/KiCad-Logo.png Graphic file (type png)
 <use images/KiCad-Logo.png>
 Package pdftex.def Info: images/KiCad-Logo.png  used on input line 88.
 (pdftex.def)             Requested size: 100.87766pt x 41.25444pt.
-<images/KiCad.png, id=225, 963.6pt x 544.28343pt>
+<images/KiCad.png, id=236, 963.6pt x 544.28343pt>
 File: images/KiCad.png Graphic file (type png)
 <use images/KiCad.png>
 Package pdftex.def Info: images/KiCad.png  used on input line 91.
 (pdftex.def)             Requested size: 426.79135pt x 241.06342pt.
  [5 <./images/KiCad-Logo.png> <./images/KiCad.png>]
-<images/eSim-logo.jpeg, id=235, 637.38126pt x 162.6075pt>
+<images/eSim-logo.jpeg, id=246, 637.38126pt x 162.6075pt>
 File: images/eSim-logo.jpeg Graphic file (type jpg)
 <use images/eSim-logo.jpeg>
 Package pdftex.def Info: images/eSim-logo.jpeg  used on input line 115.
 (pdftex.def)             Requested size: 127.47398pt x 32.52092pt.
-<images/eSim.jpg, id=236, 1305.87875pt x 746.79pt>
+<images/eSim.jpg, id=247, 1305.87875pt x 746.79pt>
 File: images/eSim.jpg Graphic file (type jpg)
 <use images/eSim.jpg>
 Package pdftex.def Info: images/eSim.jpg  used on input line 118.
 (pdftex.def)             Requested size: 312.9803pt x 178.98256pt.
  [6 <./images/eSim-logo.jpeg> <./images/eSim.jpg>]
-<images/ngspice-logo.jpg, id=242, 240.9pt x 103.38625pt>
+<images/ngspice-logo.jpg, id=253, 240.9pt x 103.38625pt>
 File: images/ngspice-logo.jpg Graphic file (type jpg)
 <use images/ngspice-logo.jpg>
 Package pdftex.def Info: images/ngspice-logo.jpg  used on input line 138.
 (pdftex.def)             Requested size: 120.44969pt x 51.693pt.
-<images/ngspice.jpeg, id=243, 642.4pt x 481.8pt>
+<images/ngspice.jpeg, id=254, 642.4pt x 481.8pt>
 File: images/ngspice.jpeg Graphic file (type jpg)
 <use images/ngspice.jpeg>
 Package pdftex.def Info: images/ngspice.jpeg  used on input line 141.
 (pdftex.def)             Requested size: 265.552pt x 199.16928pt.
  [7 <./images/ngspice-logo.jpg> <./images/ngspice.jpeg>]
 Chapter 2.
-<images/ki_bug_1.jpg, id=250, 540.0175pt x 463.7325pt>
+<images/ki_bug_1.jpg, id=261, 540.0175pt x 463.7325pt>
 File: images/ki_bug_1.jpg Graphic file (type jpg)
 <use images/ki_bug_1.jpg>
 Package pdftex.def Info: images/ki_bug_1.jpg  used on input line 158.
@@ -489,7 +489,7 @@ an . net / 375310564 / 0001-[]Eeschema-[]Adding-[]Autoplot-[]PDF-[]when-[]savin
 g-[]project .
  []
 
-<images/ki_bug_2.png, id=253, 830.10126pt x 572.1375pt>
+<images/ki_bug_2.png, id=264, 830.10126pt x 572.1375pt>
 File: images/ki_bug_2.png Graphic file (type png)
 <use images/ki_bug_2.png>
 Package pdftex.def Info: images/ki_bug_2.png  used on input line 173.
@@ -515,7 +515,7 @@ ScreenPosition();[]
 
 [9 <./images/ki_bug_2.png>] [10]
 Chapter 3.
-<images/models.png, id=270, 341.275pt x 383.4325pt>
+<images/models.png, id=281, 341.275pt x 383.4325pt>
 File: images/models.png Graphic file (type png)
 <use images/models.png>
 Package pdftex.def Info: images/models.png  used on input line 205.
@@ -528,7 +528,7 @@ Underfull \hbox (badness 1253) in paragraph at lines 209--219
 [11
 
  <./images/models.png>]
-<images/lm741.jpg, id=279, 206.7725pt x 148.555pt>
+<images/lm741.jpg, id=291, 206.7725pt x 148.555pt>
 File: images/lm741.jpg Graphic file (type jpg)
 <use images/lm741.jpg>
 Package pdftex.def Info: images/lm741.jpg  used on input line 227.
@@ -544,12 +544,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 230--235
  []
 
 [12 <./images/lm741.jpg>]
-<images/lm741_sch.png, id=286, 627.34375pt x 508.90125pt>
+<images/lm741_sch.png, id=297, 627.34375pt x 508.90125pt>
 File: images/lm741_sch.png Graphic file (type png)
 <use images/lm741_sch.png>
 Package pdftex.def Info: images/lm741_sch.png  used on input line 268.
 (pdftex.def)             Requested size: 250.93304pt x 203.55688pt.
-<images/lm741_sim.png, id=287, 1371.1225pt x 770.88pt>
+<images/lm741_sim.png, id=298, 1371.1225pt x 770.88pt>
 File: images/lm741_sim.png Graphic file (type png)
 <use images/lm741_sim.png>
 Package pdftex.def Info: images/lm741_sim.png  used on input line 275.
@@ -558,7 +558,7 @@ Package pdftex.def Info: images/lm741_sim.png  used on input line 275.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/lm733h_sub.png, id=288, 446.66875pt x 338.26375pt>
+<images/lm733h_sub.png, id=299, 446.66875pt x 338.26375pt>
 File: images/lm733h_sub.png Graphic file (type png)
 <use images/lm733h_sub.png>
 Package pdftex.def Info: images/lm733h_sub.png  used on input line 282.
@@ -622,12 +622,12 @@ Overfull \hbox (11.63387pt too wide) in paragraph at lines 332--332
 n Tf=411.1p[] 
  []
 
-<images/lm733h_sch.png, id=300, 635.37375pt x 462.72874pt>
+<images/lm733h_sch.png, id=311, 635.37375pt x 462.72874pt>
 File: images/lm733h_sch.png Graphic file (type png)
 <use images/lm733h_sch.png>
 Package pdftex.def Info: images/lm733h_sch.png  used on input line 336.
 (pdftex.def)             Requested size: 190.61359pt x 138.81969pt.
-<images/lm733h_sim.png, id=301, 1371.1225pt x 770.88pt>
+<images/lm733h_sim.png, id=312, 1371.1225pt x 770.88pt>
 File: images/lm733h_sim.png Graphic file (type png)
 <use images/lm733h_sim.png>
 Package pdftex.def Info: images/lm733h_sim.png  used on input line 343.
@@ -637,47 +637,84 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [15 <./images/lm733h_sch.png>] [16 <./images/lm733h_sim.png>]
 Chapter 4.
+<images/port.png, id=323, 863.225pt x 296.10625pt>
+File: images/port.png Graphic file (type png)
+<use images/port.png>
+Package pdftex.def Info: images/port.png  used on input line 360.
+(pdftex.def)             Requested size: 258.9695pt x 88.83255pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 357--374
+
+ []
+
 [17
 
-]
+ <./images/port.png>]
+<images/esim1.png, id=330, 440.64626pt x 237.88875pt>
+File: images/esim1.png Graphic file (type png)
+<use images/esim1.png>
+Package pdftex.def Info: images/esim1.png  used on input line 386.
+(pdftex.def)             Requested size: 172.84813pt x 93.31345pt.
+<images/esim2.png, id=331, 406.51875pt x 201.75375pt>
+File: images/esim2.png Graphic file (type png)
+<use images/esim2.png>
+Package pdftex.def Info: images/esim2.png  used on input line 391.
+(pdftex.def)             Requested size: 172.84813pt x 85.78268pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 379--403
+
+ []
+
+[18 <./images/esim1.png> <./images/esim2.png>]
+<images/esim3.png, id=341, 1371.1225pt x 770.88pt>
+File: images/esim3.png Graphic file (type png)
+<use images/esim3.png>
+Package pdftex.def Info: images/esim3.png  used on input line 410.
+(pdftex.def)             Requested size: 426.79135pt x 239.94662pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 421--425
+
+ []
+
+[19 <./images/esim3.png>]
 Chapter 5.
-[18
-
-]
-Chapter 6.
-[19
-
-]
-Chapter 7.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 368.
 [20
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 368.
+Chapter 6.
+[21
+
+] [22]
+Chapter 7.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 447.
+[23
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 447.
  (./Final.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 368.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 368.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 447.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 447.
 Package rerunfilecheck Info: File `Final.out' has not changed.
-(rerunfilecheck)             Checksum: 0874F908396F729FD1F8D7EE8D5CF849;1724.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 368.
+(rerunfilecheck)             Checksum: 2821D45C0EB9F34FB3DA491988FA5959;1744.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 447.
  ) 
 Here is how much of TeX's memory you used:
- 8021 strings out of 494923
- 122674 string characters out of 6180743
+ 8048 strings out of 494923
+ 123127 string characters out of 6180743
  209045 words of memory out of 5000000
- 11199 multiletter control sequences out of 15000+600000
+ 11216 multiletter control sequences out of 15000+600000
  10498 words of font info for 37 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 36i,8n,39p,861b,444s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,9n,39p,1509b,444s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Final.pdf (21 pages, 2005831 bytes).
+Output written on Final.pdf (24 pages, 2154981 bytes).
 PDF statistics:
- 363 PDF objects out of 1000 (max. 8388607)
- 303 compressed objects within 4 object streams
- 60 named destinations out of 1000 (max. 500000)
- 278 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 399 PDF objects out of 1000 (max. 8388607)
+ 329 compressed objects within 4 object streams
+ 66 named destinations out of 1000 (max. 500000)
+ 298 words of extra memory for PDF output out of 10000 (max. 10000000)
 

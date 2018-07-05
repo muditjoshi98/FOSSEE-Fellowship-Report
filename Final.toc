@@ -16,9 +16,9 @@
 \contentsline {chapter}{\numberline {4}\textbf {eSim}}{17}{chapter.4}
 \contentsline {section}{\numberline {4.1}Increase External Pins for Sub-Circuits}{17}{section.4.1}
 \contentsline {section}{\numberline {4.2}Introduced Rename Project Option}{17}{section.4.2}
-\contentsline {section}{\numberline {4.3}Improve handling of unknown components}{17}{section.4.3}
-\contentsline {section}{\numberline {4.4}Introduced workspace functionality in eSim}{17}{section.4.4}
-\contentsline {section}{\numberline {4.5}Minor Bug Fix and improving code usability}{17}{section.4.5}
-\contentsline {chapter}{\numberline {5}\textbf {Standalone Installer for eSim}}{18}{chapter.5}
-\contentsline {chapter}{\numberline {6}\textbf {Conclusion and future work}}{19}{chapter.6}
-\contentsline {chapter}{\numberline {7}\textbf {References}}{20}{chapter.7}
+\contentsline {section}{\numberline {4.3}Improve handling of unknown components}{18}{section.4.3}
+\contentsline {section}{\numberline {4.4}Introduced workspace functionality in eSim}{18}{section.4.4}
+\contentsline {section}{\numberline {4.5}Improve the simulation dependecy problem in new ubuntu version}{18}{section.4.5}
+\contentsline {chapter}{\numberline {5}\textbf {Standalone Installer for eSim}}{20}{chapter.5}
+\contentsline {chapter}{\numberline {6}\textbf {Conclusion and future work}}{21}{chapter.6}
+\contentsline {chapter}{\numberline {7}\textbf {References}}{23}{chapter.7}
